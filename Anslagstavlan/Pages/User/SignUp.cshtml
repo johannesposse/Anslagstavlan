@@ -1,0 +1,15 @@
+﻿@page
+@model Anslagstavlan.Pages.User.SignUpModel
+@{
+}
+
+
+<h1>Sign up</h1>
+
+<form method="post">
+    <label for="username">Username</label>
+    <input type="text" asp-for="@Model.Username" />
+    <label for="password">Password</label>
+    <input type="password" asp-for="@Model.Password"/>
+    <button class="btn btn-outline-primary">Submit</button>
+</form>
