@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Anslagstavlan.Migrations
 {
     [DbContext(typeof(DbCon))]
-    [Migration("20210921121210_2")]
-    partial class _2
+    [Migration("20210921123110_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -79,7 +79,9 @@ namespace Anslagstavlan.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("ChatUserId")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()

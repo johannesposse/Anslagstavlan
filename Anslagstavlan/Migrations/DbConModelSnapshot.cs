@@ -77,7 +77,9 @@ namespace Anslagstavlan.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("ChatUserId")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
