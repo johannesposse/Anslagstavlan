@@ -1,4 +1,5 @@
 using Anslagstavlan.Data;
+using Anslagstavlan.Model;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -24,11 +25,11 @@ namespace Anslagstavlan
 				using (var scope = host.Services.CreateScope())
 				{
 					var context = scope.ServiceProvider.GetRequiredService<DbCon>();
-					var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+					var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ChatUserModel>>();
 					context.Database.Migrate();
 					if (!context.Users.Any())
 					{
-						var adminUser = new IdentityUser()
+						var adminUser = new ChatUserModel()
 						{
 							UserName = "admin"
 						};

@@ -1,4 +1,5 @@
 using Anslagstavlan.Data;
+using Anslagstavlan.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,10 +27,10 @@ namespace Anslagstavlan
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddRazorPages(options => options.Conventions.AuthorizeFolder("/Admin"));
             services.AddDbContext<DbCon>(options => options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options => {
+            services.AddIdentity<ChatUserModel, IdentityRole>(options => {
                 options.Password.RequireDigit = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Anslagstavlan.Data
 {
-    public class DbCon : IdentityDbContext
+    public class DbCon : IdentityDbContext<ChatUserModel>
     {
         public DbCon(DbContextOptions<DbCon> options) :base(options)
         {
@@ -16,6 +16,8 @@ namespace Anslagstavlan.Data
         }
 
         public DbSet<ChatMessageModel> ChatMessageModels { get; set; }
+        public DbSet<ChatRoomModel> ChatRoomModels { get; set; }
+        public DbSet<ChatUserModel> ChatUserModels { get; set; }
 
     }
 }

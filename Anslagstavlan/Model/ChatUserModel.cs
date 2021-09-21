@@ -9,8 +9,7 @@ namespace Anslagstavlan.Model
 {
     public class ChatUserModel : IdentityUser
     {
-        [Key]
+
         public int ChatUserId { get; set; }
-        public string Username { get; set; }
     }
 }
