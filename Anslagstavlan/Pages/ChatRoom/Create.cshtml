@@ -1,0 +1,10 @@
+﻿@page
+@model Anslagstavlan.Pages.ChatRoom.CreateModel
+@{
+}
+
+<form method="post">
+    <label for="chatroomlobby">Chatroom Lobby: </label>
+    <input asp-for="@Model.ChatRoomName" type="text" id="chatroomlobby" />
+    <button class="btn btn-outline-success">Create Lobby</button>
+</form>

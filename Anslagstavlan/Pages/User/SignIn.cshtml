@@ -1,0 +1,13 @@
+﻿@page
+@model Anslagstavlan.Pages.User.SignInModel
+@{
+}
+
+
+<form method="post">
+    <label for="username">Username: </label>
+    <input type="text" id="username" asp-for="@Model.Username" />
+    <label for="password">Password: </label>
+    <input type="password" id="password" asp-for="@Model.Password" />
+    <button class="btn btn-outline-primary">Sign In</button>
+</form>
