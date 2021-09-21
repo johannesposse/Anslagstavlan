@@ -9,8 +9,13 @@ namespace Anslagstavlan.Pages.ChatRoom
 {
     public class EditModel : PageModel
     {
-        public void OnGet()
+        public void OnGet(int Id)
         {
+        }
+
+        public void OnPost()
+        {
+
         }
     }
 }
