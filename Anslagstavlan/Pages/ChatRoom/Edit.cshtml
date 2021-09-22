@@ -2,3 +2,15 @@
 @model Anslagstavlan.Pages.ChatRoom.EditModel
 @{
 }
+
+
+@*<form method="post">
+    <label for="chatroomname">ChatRoom Name:</label>
+    <input type="text" value="@Model.ChatRoom.ChatRoomName" />
+    @foreach (var message in Model.ChatRoom.Messages)
+    {
+        <label for="messages">Messages:</label>
+        <input type="text" value="@message.Message"/> // ?????
+    }
+
+</form>*@
