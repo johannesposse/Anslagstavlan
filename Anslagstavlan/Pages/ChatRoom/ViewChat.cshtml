@@ -1,0 +1,22 @@
+﻿@page
+@model Anslagstavlan.Pages.ChatRoom.ViewChatModel
+@{
+}
+
+<h1>@Model.ChatRoom.ChatRoomName</h1>
+
+@if(Model.ChatRoom.Messages != null)
+            {
+                foreach (var message in Model.MessagesList)
+                {
+                    <p>@message.ChatUser.UserName: @message.Message</p>
+                    <hr />
+                }
+            }
+
+<form method="post">
+    <input type="text" asp-for="@Model.Messages.Message"/>
+    <button class="btn btn-primary">Send</button>
+</form>
+
+
