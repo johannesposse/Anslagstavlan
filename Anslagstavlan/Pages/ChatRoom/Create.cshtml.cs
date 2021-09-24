@@ -32,7 +32,7 @@ namespace Anslagstavlan.Pages.ChatRoom
             var chatRoom = new ChatRoomModel { ChatRoomOwner =  user.ChatUserId, ChatRoomName = this.ChatRoomName};
             this.dbCon.Add(chatRoom);
             await dbCon.SaveChangesAsync();
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Chatroom/viewchat", new { id = chatRoom.ChatRoomId});
 
         }
     }

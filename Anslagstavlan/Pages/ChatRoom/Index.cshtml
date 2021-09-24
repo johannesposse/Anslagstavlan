@@ -3,7 +3,7 @@
 @{
 }
 
-<a asp-page="chatroom/create"></a>
+<a class="btn btn-outline-info" asp-page="/chatroom/create">Create Room</a>
 @if (Model.chatRooms.Any())
 {
     foreach (var chatRoom in Model.chatRooms)
