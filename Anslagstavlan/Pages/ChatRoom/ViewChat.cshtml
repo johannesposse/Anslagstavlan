@@ -1,21 +1,43 @@
 ﻿@page
+@using Anslagstavlan.Model
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ChatUserModel> signInManager
+
 @model Anslagstavlan.Pages.ChatRoom.ViewChatModel
 @{
 }
 
 <h1>@Model.ChatRoom.ChatRoomName</h1>
 
-@if(Model.ChatRoom.Messages != null)
+
+<div class="container chat">
+    @if (Model.ChatRoom.Messages != null)
+    {
+        foreach (var message in Model.MessagesList)
+        {
+            if (message.ChatUser.Id == signInManager.UserManager.GetUserId(User))
             {
-                foreach (var message in Model.MessagesList)
-                {
-                    <p>@message.ChatUser.UserName: @message.Message</p>
-                    <hr />
-                }
+                <div class="row d-flex justify-content-end">
+                    @*<div class="col-3 align-self-end">*@
+                        <p>@message.Message</p>
+                    @*</div>*@
+                </div>
             }
+            else
+            {
+                <div class="row">
+                    <div class="col align-self-start">
+                        <p>@message.ChatUser.UserName: @message.Message</p>
+                    </div>
+                </div>
+            }
+        }
+    }
+
+</div>
 
 <form method="post">
-    <input type="text" asp-for="@Model.Messages.Message"/>
+    <input type="text" asp-for="@Model.Messages.Message" />
     <button class="btn btn-primary">Send</button>
 </form>
 
