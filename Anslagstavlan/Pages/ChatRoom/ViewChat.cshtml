@@ -18,16 +18,21 @@
             if (message.ChatUser.Id == signInManager.UserManager.GetUserId(User))
             {
                 <div class="row d-flex justify-content-end">
-                    @*<div class="col-3 align-self-end">*@
+                    <div class="bubble own">
                         <p>@message.Message</p>
+
+                    </div>
+                    @*<div class="col-3 align-self-end">*@
                     @*</div>*@
                 </div>
             }
             else
             {
-                <div class="row">
-                    <div class="col align-self-start">
-                        <p>@message.ChatUser.UserName: @message.Message</p>
+                <div class="row d-flex justify-content-start">
+                    <p class="text-secondary m-0">@message.ChatUser.UserName</p>
+                    <br />
+                    <div class="bubble other">
+                        <p>@message.Message</p>
                     </div>
                 </div>
             }
