@@ -27,7 +27,7 @@ namespace Anslagstavlan
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages(options => options.Conventions.AuthorizeFolder("/Admin"));
+            services.AddRazorPages(options => options.Conventions.AuthorizeFolder("/ChatRoom"));
             services.AddDbContext<DbCon>(options => options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
 
             services.AddIdentity<ChatUserModel, IdentityRole>(options => {
@@ -36,7 +36,7 @@ namespace Anslagstavlan
                 options.Password.RequireUppercase = false;
             }).AddEntityFrameworkStores<DbCon>();
 
-            services.ConfigureApplicationCookie(options => options.LoginPath = "/Login");
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/User/Signin");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
